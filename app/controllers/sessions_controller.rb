@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
     @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
     if @authorization
       user = @authorization.user
-      render :text => "Welcome back #{@authorization.user.name}! You have already signed up."
+      session[:user_id] = user.id
+      redirect_to root_url
     else
       user = User.new :name => auth_hash['extra']['raw_info']['login'] 
       user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
       user.save
-   
-      render :text => "Hi #{user.name}! You've signed up."
+      session[:user_id] = user.id
+      redirect_to root_url
     end
-    session[:user_id] = user.id 
   end
 
   def failure
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    render :text => "You've logged out!"
+    redirect_to root_url 
   end
 
 end
