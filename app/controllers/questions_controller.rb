@@ -15,6 +15,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question && @question.update_attribute(:accepted_at, Time.now)
       @question.update_attribute(:rejected_at, nil)
+      # send message to user
+      #q.update_file_and_commit("#{q.text.truncate(40)}.json", q.to_json, "Pimped")
+      @question.update_file_and_commit("#{@question.text.truncate(40).parameterize}.json", @question.to_json, "Pimped")
       redirect_to questions_url, notice: 'Question was successfully accepted.' 
     else
       redirect_to questions_url, notice: 'Question was NOT successfully accepted.' 
@@ -25,6 +28,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question && @question.update_attribute(:rejected_at, Time.now)
       @question.update_attribute(:accepted_at, nil)
+      # send message to user      
       redirect_to questions_url, notice: 'Question was successfully rejected.' 
     else
       redirect_to questions_url, notice: 'Question was NOT successfully rejected.' 
