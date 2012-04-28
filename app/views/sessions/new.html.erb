@@ -1,10 +1,29 @@
-<h1>Questionizer</h1>
-<% if current_user %>
-  <%= link_to "Logout", logout_path %>
-  <%= link_to "New Question", new_question_path %>
-    <% if current_user.admin? %>
-      <%= link_to "Index", questions_path %>      
-    <% end %>  
-<% else %>
-  <%= link_to "Connect With Github", "/auth/github" %>
-<% end %>
+<div class="clearfix" id="container">
+  <div id="header">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div id="wrapper">
+    <div class="view-container">
+      <div class="display">
+        <div id="view-login" style="display: block;">
+          <h2>Questionizer</h2>
+          <ul>
+            <% if current_user %>
+              <li><%= link_to "Logout", logout_path, :class => "clickable" %></li>
+              <li><%= link_to "New Question", new_question_path, :class => "clickable"  %></li>
+                <% if current_user.admin? %>
+                <li><%= link_to "Index", questions_path, :class => "clickable"  %></li>
+                <% end %>  
+            <% else %>
+              <li>
+              <%= link_to "Connect With Github", "/auth/github", :class => "clickable" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="display-overlay"></div>
+        <div class="display-gradient"></div>
+      </div>
+    </div>
+  </div>
+</div>

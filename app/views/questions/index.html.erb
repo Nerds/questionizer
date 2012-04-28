@@ -1,27 +1,28 @@
-<h1>Questions</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Category</th>
-      <th>Created at</th>
-      <th>Actions</th>
-      <th>Accepted_at</th>
-      <th>Rejected_at</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.id %></td>
-        <td><%= link_to question.category, question_path(question) %></td>
-        <td><%= question.created_at %></td>
-        <td><%= button_to "Accept", { :action => "accept", :id => question.id }, :method => :put %><%= button_to "Reject", { :action => "reject", :id => question.id }, :method => :put %></td>
-        <td><%= question.accepted_at %></td>
-        <td><%= question.rejected_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New', new_question_path, :class => 'btn btn-primary' %>
+<div class="clearfix" id="container">
+  <div id="header">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div id="wrapper">
+    <div class="view-container">
+      <div class="display">
+        <div id="view-login" style="display: block;">
+          <h2>Questionizer</h2>
+          <% @questions.each do |question| %>
+            <tr>
+              <td><%= question.id %></td>
+              <td><%= link_to question.category, question_path(question) %></td>
+              <td><%= question.created_at %></td>
+              <td><%= button_to "Accept", { :action => "accept", :id => question.id }, :method => :put %><%= button_to "Reject", { :action => "reject", :id => question.id }, :method => :put %></td>
+              <td><%= question.accepted_at %></td>
+              <td><%= question.rejected_at %></td>
+            </tr>
+          <% end %>
+          <%= link_to 'New', new_question_path, :class => 'btn btn-primary' %>
+          
+        </div>
+        <div class="display-overlay"></div>
+        <div class="display-gradient"></div>
+      </div>
+    </div>
+  </div>
+</div>
