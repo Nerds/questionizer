@@ -5,9 +5,9 @@ class Question < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :a1, :a2, :a3, :a4, :category, :creator, :creator_github, :nerd_level, :right_answer, :sub_category, :text, :user_id
 
-  def update_file_and_commit(path, content, message)
+  def update_file_and_commit(file, content, message)
     gh = ::Hackn::Github.new(self.user.authorizations.find_by_provider('github').token)
-    tree_sha = gh.create_tree(path, content)
+    tree_sha = gh.create_tree("questions/#{self.sub_category}/#{file}", content)
     commit_sha = gh.create_commit(tree_sha, message)
     gh.point_master_to_commit(commit_sha)
   end

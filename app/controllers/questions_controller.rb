@@ -16,7 +16,6 @@ class QuestionsController < ApplicationController
     if @question && @question.update_attribute(:accepted_at, Time.now)
       @question.update_attribute(:rejected_at, nil)
       # send message to user
-      #q.update_file_and_commit("#{q.text.truncate(40)}.json", q.to_json, "Pimped")
       @question.update_file_and_commit("#{@question.text.truncate(40).parameterize}.json", @question.to_json, "Pimped")
       redirect_to questions_url, notice: 'Question was successfully accepted.' 
     else

@@ -1,0 +1,19 @@
+# Todos
+
+- Dropdowns for question/new view: category, subcatogory, nerd level, right answer dropdown, 
+- After accepting a question remove the buttons (view/controller logic)
+- sort the links on the startpage
+- add an admin scope (views)
+- change font
+- change a1, a2, ... 
+- creator name - prefil
+- creator twitter - prefil
+- remove user id
+- test
+- pimp show view
+- after a question create - send email to admin
+- after accept/reject - remove buttons - or do something
+- after accept/reject send email to user/admins
+- change commit message
+- add author/creator details
+- format created at

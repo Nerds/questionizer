@@ -1,7 +1,7 @@
 module Hackn
   class Github
     include HTTParty
-    base_uri "https://api.github.com/repos/koos/test-pimp-my-changelog"
+    base_uri "https://api.github.com/repos/koos/NerdPursuit"
     format :json
     debug_output
     attr_accessor :token
@@ -27,7 +27,7 @@ module Hackn
             "mode" => "100644",
             "type" => "blob",
             "content" => content }] }.to_json,
-        :headers => {"Authorization" => "token #{self.token}"}
+        :headers => {"Authorization" => "token #{self.token}", "Content-Type" => "application/json"}
       ).parsed_response.fetch("sha")
     end
 
@@ -37,14 +37,14 @@ module Hackn
           "message" => message,
           "parents" => [sha_latest_commit],
           "tree" => tree_sha }.to_json,
-        :headers => {"Authorization" => "token #{self.token}"}       
+        :headers => {"Authorization" => "token #{self.token}", "Content-Type" => "application/json"}
       ).parsed_response.fetch("sha")
     end
 
     def point_master_to_commit(commit_sha)
       put("/git/refs/heads/master", 
         :body => { :sha => commit_sha }.to_json, 
-        :headers => {"Authorization" => "token #{self.token}"}
+        :headers => {"Authorization" => "token #{self.token}", "Content-Type" => "application/json"}
       ).code
     end
 
