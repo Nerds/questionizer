@@ -1,0 +1,101 @@
+<%= form_for @question, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Question</legend>
+
+    <div class="control-group">
+      <%= f.label :category, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :category, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sub_category, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :sub_category, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :nerd_level, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :nerd_level, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :text, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :text, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :a1, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :a1, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :a2, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :a2, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :a3, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :a3, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :a4, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :a4, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :right_answer, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :right_answer, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :creator, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :creator, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :creator_twitter, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :creator_twitter, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :creator_github, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :creator_github, :class => 'text_field', :value => current_user.name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :user_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :user_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', questions_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

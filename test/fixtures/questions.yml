@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category: MyString
+  sub_category: MyString
+  nerd_level: 1
+  text: MyString
+  a1: MyString
+  a2: MyString
+  a3: MyString
+  a4: MyString
+  right_answer: MyString
+  creator: MyString
+  creator_twitter: MyString
+  creator_github: MyString
+  user_id: 1
+
+two:
+  category: MyString
+  sub_category: MyString
+  nerd_level: 1
+  text: MyString
+  a1: MyString
+  a2: MyString
+  a3: MyString
+  a4: MyString
+  right_answer: MyString
+  creator: MyString
+  creator_twitter: MyString
+  creator_github: MyString
+  user_id: 1

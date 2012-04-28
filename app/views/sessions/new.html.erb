@@ -1,0 +1,10 @@
+<h1>Questionizer</h1>
+<% if current_user %>
+  <%= link_to "Logout", logout_path %>
+  <%= link_to "New Question", new_question_path %>
+    <% if current_user.admin? %>
+      <%= link_to "Index", questions_path %>      
+    <% end %>  
+<% else %>
+  <%= link_to "Connect With Github", "/auth/github" %>
+<% end %>

@@ -1,0 +1,70 @@
+<h1>Question</h1>
+
+<p>
+  <b>Category</b><br>
+  <%= @question.category %>
+</p>
+
+<p>
+  <b>Sub category</b><br>
+  <%= @question.sub_category %>
+</p>
+
+<p>
+  <b>Nerd level</b><br>
+  <%= @question.nerd_level %>
+</p>
+
+<p>
+  <b>Text</b><br>
+  <%= @question.text %>
+</p>
+
+<p>
+  <b>A1</b><br>
+  <%= @question.a1 %>
+</p>
+
+<p>
+  <b>A2</b><br>
+  <%= @question.a2 %>
+</p>
+
+<p>
+  <b>A3</b><br>
+  <%= @question.a3 %>
+</p>
+
+<p>
+  <b>A4</b><br>
+  <%= @question.a4 %>
+</p>
+
+<p>
+  <b>Right answer</b><br>
+  <%= @question.right_answer %>
+</p>
+
+<p>
+  <b>Creator</b><br>
+  <%= @question.creator %>
+</p>
+
+<p>
+  <b>Creator twitter</b><br>
+  <%= @question.creator_twitter %>
+</p>
+
+<p>
+  <b>Creator github</b><br>
+  <%= @question.creator_github %>
+</p>
+
+<p>
+  <b>User</b><br>
+  <%= @question.user_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', questions_path, :class => 'btn'  %>
+</div>
