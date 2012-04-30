@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     if @question && @question.update_attribute(:accepted_at, Time.now)
       @question.update_attribute(:rejected_at, nil)
       # send message to user
-      @question.update_file_and_commit("#{@question.text.truncate(40).parameterize}.json", @question.to_json, "Pimped")
+      @question.update_file_and_commit("#{@question.text.truncate(40).parameterize}.json", @question.to_json, "Added a #{@question.category.upcase} question about #{@question.sub_category.upcase}. NERD LEVEL #{@question.nerd_level}")
       redirect_to questions_url, notice: 'Question was successfully accepted.' 
     else
       redirect_to questions_url, notice: 'Question was NOT successfully accepted.' 
