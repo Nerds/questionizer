@@ -5,21 +5,21 @@
     <div class="control-group">
       <%= f.label :category, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :category, :class => 'text_field' %>
+        <%= f.select :category, ["programming", "culture", "backend", "frontend", "design", "startup & founding", "social" ] %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :sub_category, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :sub_category, :class => 'text_field' %>
+        <%= f.select :sub_category, ["algorithms", "api", "bash", "C", "couchdb","css", "culture", "data", "encoding", "flash", "graphics", "haskell", "html","http","javascript", "php", "python","rails","ruby","regex" ] %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :nerd_level, :class => 'control-label' %>
       <div class="controls">
-        <%= f.number_field :nerd_level, :class => 'number_field' %>
+        <%= f.select :nerd_level, ['1','2','3','4', '5'] %>
       </div>
     </div>
 
@@ -61,14 +61,14 @@
     <div class="control-group">
       <%= f.label :right_answer, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :right_answer, :class => 'text_field' %>
+        <%= f.select :right_answer, ['A1','A2','A3','A4'] %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :creator, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :creator, :class => 'text_field' %>
+        <%= f.text_field :creator, :class => 'text_field', :value => current_user.name %>
       </div>
     </div>
 
@@ -82,14 +82,7 @@
     <div class="control-group">
       <%= f.label :creator_github, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :creator_github, :class => 'text_field', :value => current_user.name %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :user_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :user_id, :class => 'number_field' %>
+        <%= f.text_field :creator_github, :class => 'text_field', :value => current_user.login %>
       </div>
     </div>
 
