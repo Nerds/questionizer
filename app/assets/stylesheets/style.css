@@ -1,5 +1,5 @@
 html{height:100%}
-body{padding:0;margin:0;font:15px 'SilkscreenNormal',Arial,sans-serif;background-image: url("background.png");text-align:center;color:#566050;height:100%}
+body{padding:0;margin:0;font:15px 'SilkscreenNormal',Arial,sans-serif;background-image: url("background.png");text-align:center;color:#566050}
 h1,h2,h3{font-weight:normal}
 .view-container{min-height:100%}
 .clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
