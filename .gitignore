@@ -13,3 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/config/environments/development.rb
+/config/environments/production.rb

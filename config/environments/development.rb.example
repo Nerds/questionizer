@@ -35,5 +35,7 @@ NerdpursuitFrontend::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.github_base_uri = "https://api.github.com/repos/koos/NerdPursuit"
+  config.github_base_uri = "my nerd pursuit repo"
+  config.github_key = 'my key'
+  config.github_secret = 'my secret'
 end
