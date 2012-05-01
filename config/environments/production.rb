@@ -65,7 +65,7 @@ NerdpursuitFrontend::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.github_base_uri = "https://api.github.com/repos/koos/NerdPursuit"
+  config.github_base_uri = "https://api.github.com/repos/Nerds/NerdPursuit"
   config.github_key =  ENV['GITHUB_KEY'],
   config.github_secret = ENV['GITHUB_SECRET']
 
