@@ -1,7 +1,4 @@
 <div class="clearfix" id="container">
-  <div id="header">
-    <%= image_tag "logo.png" %>
-  </div>
   <div id="wrapper">
     <div class="view-container">
       <div class="display">
@@ -9,9 +6,10 @@
           <h2>Questionizer</h2>
           <ul>
             <% if current_user %>
-              <li><%= link_to "Logout", logout_path, :class => "clickable" %></li>
               <li><%= link_to "New Question", new_question_path, :class => "clickable"  %></li>
+              <li><%= link_to "Logout", logout_path, :class => "clickable" %></li>
                 <% if current_user.admin? %>
+                <h2>Admin Bro!</h2>
                 <li><%= link_to "Index", questions_path, :class => "clickable"  %></li>
                 <% end %>  
             <% else %>

@@ -1,24 +1,33 @@
 <div class="clearfix" id="container">
-  <div id="header">
-    <%= image_tag "logo.png" %>
-  </div>
   <div id="wrapper">
     <div class="view-container">
       <div class="display">
         <div id="view-login" style="display: block;">
           <h2>Questionizer</h2>
-          <% @questions.each do |question| %>
-            <tr>
-              <td><%= question.id %></td>
-              <td><%= link_to question.category, question_path(question) %></td>
-              <td><%= question.created_at %></td>
-              <td><%= button_to "Accept", { :action => "accept", :id => question.id }, :method => :put %><%= button_to "Reject", { :action => "reject", :id => question.id }, :method => :put %></td>
-              <td><%= question.accepted_at %></td>
-              <td><%= question.rejected_at %></td>
-            </tr>
-          <% end %>
-          <%= link_to 'New', new_question_path, :class => 'btn btn-primary' %>
-          
+          <table>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>Actions</th>                                                
+            <% @questions.each do |question| %>
+              <tr>
+                <td><%= question.category %>,</td>
+                <td><%= question.sub_category %> by</td>
+                <td><strong><%= question.user.name || question.user.login %></strong></td>
+                <td>
+                  <% if question.accepted_at? %>
+                    Accepted at <%= question.accepted_at %>
+                  <% elsif question.rejected_at? %>
+                    Rejected at <%= question.rejected_at %>
+                  <% else %>
+                    <%= button_to "Accept", { :action => "accept", :id => question.id }, :method => :put, :class => "btn btn-primary" %><%= button_to "Reject", { :action => "reject", :id => question.id }, :method => :put, :class => "btn btn-primary" %>
+                  <% end %>
+                </td>
+                <td><%= link_to "Show", question_path(question), :class=> 'btn' %></td>
+              </tr>
+            <% end %>
+          </table>
         </div>
         <div class="display-overlay"></div>
         <div class="display-gradient"></div>

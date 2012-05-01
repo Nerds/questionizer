@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Question was successfully created.' }
       else
         format.html { render action: "new" }
       end

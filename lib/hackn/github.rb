@@ -1,13 +1,14 @@
 module Hackn
   class Github
     include HTTParty
-    base_uri "https://api.github.com/repos/koos/NerdPursuit"
+    base_uri NerdpursuitFrontend::Application.config.github_base_uri
     format :json
     debug_output
     attr_accessor :token
 
-    def initialize(token)
+    def initialize(token, author)
       @token = token
+      @author = author
     end
 
     def sha_latest_commit
@@ -36,7 +37,13 @@ module Hackn
         :body => {
           "message" => message,
           "parents" => [sha_latest_commit],
-          "tree" => tree_sha }.to_json,
+          "tree" => tree_sha,
+          "author" => {
+            "name" => @author.login,
+            "email" => @author.email,
+            "date" => Time.now
+            }
+          }.to_json,
         :headers => {"Authorization" => "token #{self.token}", "Content-Type" => "application/json"}
       ).parsed_response.fetch("sha")
     end
