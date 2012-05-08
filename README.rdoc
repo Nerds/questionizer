@@ -1,6 +1,5 @@
 ## Todos
 
-- After accepting a question remove the buttons (view/controller logic)
 
 - change font
 - after a question create - send email to admin
@@ -17,3 +16,4 @@
 - sort the links on the startpage
 - pimp show view
 - after accept/reject - remove buttons - or do something
+- After accepting a question remove the buttons (view/controller logic)
