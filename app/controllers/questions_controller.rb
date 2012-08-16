@@ -40,7 +40,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(params[:question])
-
     respond_to do |format|
       if @question.save
         format.html { redirect_to root_url, notice: 'Question was successfully created.' }

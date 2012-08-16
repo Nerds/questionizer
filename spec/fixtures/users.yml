@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+<% 1.upto(10) do |i| %>
+peter_<%= i %>:
+  id: <%= i %>
+  email: peter_<%= i %>@example.com
+  name: peter_<%= i %>
+  admin: false
+  login: peter_<%= i %>
+<% end %>
+
+<% 1.upto(10) do |i| %>
+peter_admin_<%= i %>:
+  id: 600<%= i %>
+  email: peter_admin_<%= i %>@example.com
+  name: peter_admin_<%= i %>
+  admin: true
+  login: peter_admin_<%= i %>
+<% end %>

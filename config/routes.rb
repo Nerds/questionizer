@@ -1,4 +1,5 @@
 NerdpursuitFrontend::Application.routes.draw do
+
   get "sessions/new"
   get "sessions/create"
   get "sessions/failure"
