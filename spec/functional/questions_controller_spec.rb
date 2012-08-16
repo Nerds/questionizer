@@ -5,6 +5,14 @@ describe QuestionsController do
   describe "index action" do
     
     describe "as a user" do
+
+      it "should redirect to root path" do
+        peter = users(:peter_1)
+        @controller.stubs(:current_user).returns(peter)
+        get :index
+        assert_redirected_to root_url
+      end
+
     end
 
     describe "as an admin" do
@@ -79,6 +87,13 @@ describe QuestionsController do
   describe "show action" do
 
     describe "as a user" do
+      it "should redirect to root path" do
+        peter = users(:peter_1)
+        question = questions(:one)
+        @controller.stubs(:current_user).returns(peter)
+        get :show, :id => question.id
+        assert_redirected_to root_url
+      end      
     end
 
     describe "as an admin" do
@@ -98,7 +113,17 @@ describe QuestionsController do
 
   describe "accept action" do
 
+    before do
+      @question = questions(:one)      
+    end
+
     describe "as a user" do
+      it "should redirect to root path" do
+        peter = users(:peter_1)
+        @controller.stubs(:current_user).returns(peter)
+        put :accept, :id => @question.id
+        assert_redirected_to root_url
+      end
     end
 
     describe "as a admin" do
@@ -108,8 +133,18 @@ describe QuestionsController do
   end
 
   describe "reject action" do
+    
+    before do
+      @question = questions(:one)      
+    end
 
     describe "as a user" do
+      it "should redirect to root path" do
+        peter = users(:peter_1)
+        @controller.stubs(:current_user).returns(peter)
+        put :reject, :id => @question.id
+        assert_redirected_to root_url
+      end      
     end
 
     describe "as a admin" do    

@@ -1,11 +1,8 @@
 ## Todos
 
-
-- change font
 - after a question create - send email to admin
 - after accept/reject send email to user/admins
 - test
-
 
 ## Done so far
 
